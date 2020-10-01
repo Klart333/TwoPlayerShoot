@@ -21,7 +21,7 @@ public class Win : MonoBehaviour
     [PunRPC]
     public void OnWin(GameObject player)
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         GameObject winPanel = (GameObject)Instantiate(Resources.Load("WinPanel"), GameObject.Find("Canvas").transform);
         TextMeshProUGUI Wintext = winPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         if (player.name == "Gubbe2")
