@@ -6,25 +6,26 @@ public class GubbShoot : MonoBehaviour
 {
     protected float bulletSpeed = 0;
 
-    PhotonView playerView;
+    PhotonView photonView;
 
     protected bool bodgeInverted = false;
 
     virtual protected void Start()
     {
-        playerView = GetComponent<PhotonView>();
+        photonView = PhotonView.Get(this);
+        // Removed
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && playerView.IsMine)
+        if (Input.GetKeyDown(KeyCode.Space) && photonView.IsMine)
         {
-            Shoot();
+            photonView.RPC("Shoot", RpcTarget.All);
         }
     }
 
     [PunRPC]
-    void Shoot()
+    public void Shoot()
     {
         GameObject bull = PhotonNetwork.Instantiate("Prefabs/Bullet", transform.GetChild(0).position, Quaternion.identity);
         Rigidbody2D bullrb = bull.GetComponent<Rigidbody2D>();
