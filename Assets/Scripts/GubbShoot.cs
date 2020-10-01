@@ -23,7 +23,7 @@ public class GubbShoot : MonoBehaviour
             photonView.RPC("Shoot", RpcTarget.All);
         }
     }
-
+    [PunRPC]
     public void Shoot()
     {
         GameObject bull = PhotonNetwork.Instantiate("Prefabs/Bullet", transform.GetChild(0).position, Quaternion.identity);
