@@ -39,6 +39,7 @@ public class Win : MonoBehaviour
     {
         print("Akt");
         Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        PhotonNetwork.LoadLevel(1);
+        
     }
 }
