@@ -4,7 +4,7 @@ using TMPro;
 using Photon.Pun;
 public class Win : MonoBehaviour
 {
-    bool gameover = false;
+    public bool gameover = false;
     public static Win Instance;
 
     public PhotonView photonView;
@@ -22,21 +22,17 @@ public class Win : MonoBehaviour
     [PunRPC]
     public void OnWin(GameObject player)
     {
-        if (!gameover)
+        GameObject winPanel = (GameObject)Instantiate(Resources.Load("WinPanel"), GameObject.Find("Canvas").transform);
+        TextMeshProUGUI Wintext = winPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        print(player);
+        if (player.GetComponent<Gubbe2>())
         {
-            GameObject winPanel = (GameObject)Instantiate(Resources.Load("WinPanel"), GameObject.Find("Canvas").transform);
-            TextMeshProUGUI Wintext = winPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            if (player.GetComponent<Gubbe2>())
-            {
-                Wintext.text = "Player 1 Wins!";
-            }
-            else if (player.GetComponent<Gubbe1>())
-            {
-                Wintext.text = "Player 2 Wins!";
-            }
-            gameover = true;
+            Wintext.text = "Player 1 Wins!";
         }
-
+        else if (player.GetComponent<Gubbe1>())
+        {
+            Wintext.text = "Player 2 Wins!";
+        }        
     }
 
     [PunRPC]

@@ -5,8 +5,9 @@ public class KillOnTouch : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.WasPlayer())
+        if (collision.WasPlayer() && !Win.Instance.gameover)
         {
+            Win.Instance.gameover = true;
             StartCoroutine("KillPlayer", collision);
         }
     }
