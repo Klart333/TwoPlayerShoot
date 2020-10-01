@@ -7,8 +7,10 @@ public class GubbShoot : MonoBehaviour
     protected float bulletSpeed = 0;
 
     PhotonView photonView;
+    
 
     protected bool bodgeInverted = false;
+    
 
     virtual protected void Start()
     {
@@ -23,6 +25,7 @@ public class GubbShoot : MonoBehaviour
             photonView.RPC("Shoot", RpcTarget.All);
         }
     }
+
     [PunRPC]
     public void Shoot()
     {
@@ -35,6 +38,7 @@ public class GubbShoot : MonoBehaviour
             {
                 bull.GetComponent<SpriteRenderer>().flipX = true;
             }
+
         }
         else if (gameObject.transform.eulerAngles.y < 1)
         {
