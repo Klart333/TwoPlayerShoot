@@ -37,6 +37,7 @@ public class Win : MonoBehaviour
     [PunRPC]
     public void RestartGame()
     {
+        print("Akt");
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
