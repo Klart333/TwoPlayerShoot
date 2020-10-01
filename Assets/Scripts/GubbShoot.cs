@@ -15,18 +15,18 @@ public class GubbShoot : MonoBehaviour
     virtual protected void Start()
     {
         photonView = PhotonView.Get(this);
-        // Removed
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && photonView.IsMine)
         {
-            photonView.RPC("Shoot", RpcTarget.All);
+            //photonView.RPC("Shoot", RpcTarget.All);
+            Shoot();
         }
     }
 
-    [PunRPC]
+    //[PunRPC]
     public void Shoot()
     {
         print("HEööp");
