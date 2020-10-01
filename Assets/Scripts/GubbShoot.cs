@@ -19,7 +19,7 @@ public class GubbShoot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) /*&& playerView.IsMine*/)
+        if (Input.GetKeyDown(KeyCode.Space) && playerView.IsMine)
         {
             Shoot();
         }
