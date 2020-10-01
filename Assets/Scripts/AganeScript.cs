@@ -6,6 +6,6 @@ public class AganeScript : MonoBehaviour
 {
     public void OnButton()
     {
-        Win.Instance.ResartGame();
+        Win.Instance.CallRestartGameRpc();
     }
 }

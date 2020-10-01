@@ -35,6 +35,11 @@ public class Win : MonoBehaviour
     }
 
     [PunRPC]
+    public void CallRestartGameRpc()
+    {
+        photonView.RPC("ResartGame", RpcTarget.All);
+    }
+
     public void ResartGame()
     {
         Time.timeScale = 1;
