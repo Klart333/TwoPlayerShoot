@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Photon.Pun;
 public class Win : MonoBehaviour
 {
     public static Win Instance;
 
+    PhotonView photonView;
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
+
+            photonView = PhotonView.Get(this);
         }
     }
     
+    [PunRPC]
     public void OnWin(GameObject player)
     {
         Time.timeScale = 0;
@@ -30,6 +34,7 @@ public class Win : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void ResartGame()
     {
         Time.timeScale = 1;
