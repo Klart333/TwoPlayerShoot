@@ -6,14 +6,15 @@ public class Win : MonoBehaviour
 {
     public static Win Instance;
 
-    PhotonView photonView;
-    private void Start()
+    public PhotonView photonView;
+    private void Awake()
     {
-        photonView = PhotonView.Get(this);
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
+
+            photonView = PhotonView.Get(this);
         }
     }
     
@@ -34,11 +35,6 @@ public class Win : MonoBehaviour
     }
 
     [PunRPC]
-    public void CallRestartGameRpc()
-    {
-        photonView.RPC("RestartGame", RpcTarget.All);
-    }
-
     public void RestartGame()
     {
         Time.timeScale = 1;
