@@ -7,7 +7,7 @@ public class Win : MonoBehaviour
     public static Win Instance;
 
     PhotonView photonView;
-    private void Awake()
+    private void Start()
     {
         photonView = PhotonView.Get(this);
         if (Instance == null)
