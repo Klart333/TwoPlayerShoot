@@ -39,6 +39,12 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - Shoot
+  - OnWin
+  - ResartGame
+  - CallMyRoutine
+  - KillPlayer
+  - CallRpc
+  - CallRestartGameRpc
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
