@@ -7,6 +7,7 @@ public class KillOnTouch : MonoBehaviour
     {
         if (collision.WasPlayer() && !Win.Instance.gameover)
         {
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
             Win.Instance.gameover = true;
             StartCoroutine("KillPlayer", collision);
         }
