@@ -29,6 +29,7 @@ public class GubbShoot : MonoBehaviour
     [PunRPC]
     public void Shoot()
     {
+        print("HEööp");
         GameObject bull = PhotonNetwork.Instantiate("Prefabs/Bullet", transform.GetChild(0).position, Quaternion.identity);
         Rigidbody2D bullrb = bull.GetComponent<Rigidbody2D>();
         if (gameObject.transform.eulerAngles.y > 0)
