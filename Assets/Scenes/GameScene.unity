@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e8941f67c327341a7ff938a75f3c24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameover: 0
   photonView: {fileID: 0}
 --- !u!114 &1365246860
 MonoBehaviour:
