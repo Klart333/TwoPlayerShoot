@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 public static class Collision2DExtensions
 {
     public static bool WasPlayer(this Collision2D collision)
